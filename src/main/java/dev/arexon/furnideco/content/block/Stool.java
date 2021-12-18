@@ -2,13 +2,19 @@ package dev.arexon.furnideco.content.block;
 
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.sound.SoundEvents;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
+import net.minecraft.util.ActionResult;
 import net.minecraft.util.DyeColor;
+import net.minecraft.util.Hand;
+import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
+import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
@@ -26,6 +32,20 @@ public class Stool extends Block {
     public Stool(Settings settings) {
         super(settings);
         setDefaultState(getStateManager().getDefaultState().with(COLOR, 0));
+    }
+
+    @Override
+    public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
+        int color = state.get(COLOR);
+
+        if (color >= 15) {
+            color = 0;
+        } else {
+            color++;
+        }
+
+        world.setBlockState(pos, state.with(COLOR, color));
+        return ActionResult.SUCCESS;
     }
 
     @Override
