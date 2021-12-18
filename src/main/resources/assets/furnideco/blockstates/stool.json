@@ -1,6 +1,5 @@
 {
   "variants": {
-    "": {"model": "furnideco:block/rustic/stool/oak/0"},
     "color=0": {"model": "furnideco:block/rustic/stool/oak/0"},
     "color=1": {"model": "furnideco:block/rustic/stool/oak/1"},
     "color=2": {"model": "furnideco:block/rustic/stool/oak/2"},
