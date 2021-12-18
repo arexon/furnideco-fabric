@@ -1,4 +1,4 @@
-# FurniDeco
+# FurniDeco (WIP)
 
 ![FurniDeco Key Art](https://arexon.dev/pages/furnideco/thumbnail.png)
 
