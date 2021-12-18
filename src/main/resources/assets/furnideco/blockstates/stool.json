@@ -1,5 +1,21 @@
 {
   "variants": {
-    "": {"model": "furnideco:block/rustic/stool/oak/2"}
+    "": {"model": "furnideco:block/rustic/stool/oak/0"},
+    "color=0": {"model": "furnideco:block/rustic/stool/oak/0"},
+    "color=1": {"model": "furnideco:block/rustic/stool/oak/1"},
+    "color=2": {"model": "furnideco:block/rustic/stool/oak/2"},
+    "color=3": {"model": "furnideco:block/rustic/stool/oak/3"},
+    "color=4": {"model": "furnideco:block/rustic/stool/oak/4"},
+    "color=5": {"model": "furnideco:block/rustic/stool/oak/5"},
+    "color=6": {"model": "furnideco:block/rustic/stool/oak/6"},
+    "color=7": {"model": "furnideco:block/rustic/stool/oak/7"},
+    "color=8": {"model": "furnideco:block/rustic/stool/oak/8"},
+    "color=9": {"model": "furnideco:block/rustic/stool/oak/9"},
+    "color=10": {"model": "furnideco:block/rustic/stool/oak/10"},
+    "color=11": {"model": "furnideco:block/rustic/stool/oak/11"},
+    "color=12": {"model": "furnideco:block/rustic/stool/oak/12"},
+    "color=13": {"model": "furnideco:block/rustic/stool/oak/13"},
+    "color=14": {"model": "furnideco:block/rustic/stool/oak/14"},
+    "color=15": {"model": "furnideco:block/rustic/stool/oak/15"}
   }
 }
