@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "id": "furnideco",
+  "version": "${version}",
+
+  "name": "FurniDeco",
+  "description": "Adds 25 pieces of functional, decorative and unique furniture that fit with the Minecraft vanilla style.",
+  "authors": [
+    "Arexron",
+    "SamDev-7"
+  ],
+  "contact": {
+    "homepage": "https://arexon.dev/project/furnideco/",
+    "sources": "https://github.com/Arexon/furnideco-java"
+  },
+
+  "license": "Apache-2.0",
+  "icon": "assets/furnideco/icon.png",
+
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "dev.arexon.furnideco.FurniDeco"
+    ],
+    "client": [
+      "dev.arexon.furnideco.client.FurniDecoClient"
+    ]
+  },
+
+  "depends": {
+    "fabricloader": ">=0.11.3",
+    "fabric": "*",
+    "minecraft": "1.18.x",
+    "java": ">=17"
+  },
+  "suggests": {
+    "another-mod": "*"
+  }
+}
