@@ -1,9 +1,7 @@
 package dev.arexon.furnideco.content.util;
 
-import net.minecraft.block.*;
-import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.shape.VoxelShape;
-import net.minecraft.world.BlockView;
+import net.minecraft.block.MapColor;
+import net.minecraft.block.Material;
 
 public class FurniDecoMaterials {
 
