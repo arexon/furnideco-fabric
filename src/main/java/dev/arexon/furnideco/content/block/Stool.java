@@ -3,19 +3,20 @@ package dev.arexon.furnideco.content.block;
 import dev.arexon.furnideco.FurniDeco;
 import dev.arexon.furnideco.content.entity.SitEntity;
 import dev.arexon.furnideco.content.item.ItemRegistry;
+import dev.arexon.furnideco.content.util.FurniDecoMaterials;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.state.StateManager;
 import net.minecraft.state.property.IntProperty;
 import net.minecraft.util.ActionResult;
-import net.minecraft.util.DyeColor;
 import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
+import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
@@ -24,13 +25,12 @@ import net.minecraft.world.WorldView;
 @SuppressWarnings("deprecation")
 public class Stool extends Block {
 
-    public static final Material STOOL_MATERIAL = new Material.Builder(MapColor.OAK_TAN).notSolid().build();
-    protected static final VoxelShape SHAPE = Block.createCuboidShape(1.d, .0d, 1.d, 15.d, 11.d, 15.d);
+    protected static final VoxelShape SHAPE = VoxelShapes.cuboid(1.d/16, .0d/16, 1.d/16, 15.d/16, 11.d/16, 15.d/16);
     public static final IntProperty COLOR = IntProperty.of("color", 0, 15);
 
     public Stool() {
 
-        super(FabricBlockSettings.of(STOOL_MATERIAL, DyeColor.ORANGE).requiresTool().nonOpaque());
+        super(FabricBlockSettings.of(FurniDecoMaterials.NON_SOLID_MATERIAL).requiresTool().nonOpaque());
     }
 
     public Stool(Settings settings) {

@@ -30,6 +30,7 @@ public class BlockRegistry {
     public static Block OAK_STOOL = new Stool();
     public static Block SPRUCE_STOOL = new Stool();
     public static Block WARPED_STOOL = new Stool();
+    public static Block STEP_LADDER = new StepLadder();
 
     public static void register() {
 
@@ -41,5 +42,6 @@ public class BlockRegistry {
         registerBlock("oak_stool", OAK_STOOL);
         registerBlock("spruce_stool", SPRUCE_STOOL);
         registerBlock("warped_stool", WARPED_STOOL);
+        registerBlock("step_ladder", STEP_LADDER);
     }
 }

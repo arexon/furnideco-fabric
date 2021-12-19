@@ -30,7 +30,7 @@ public class FurniDecoClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.OAK_STOOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SPRUCE_STOOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WARPED_STOOL, RenderLayer.getCutout());
-
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEP_LADDER, RenderLayer.getCutout());
 
     }
 
