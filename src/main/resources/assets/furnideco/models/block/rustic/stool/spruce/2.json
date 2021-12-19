@@ -1,5 +1,5 @@
 {
-  "parent": "furnideco:block/rustic/stool/stool",
+  "parent": "furnideco:block/rustic/stool",
   "textures": {
     "material": "furnideco:block/rustic/stool/wood/spruce",
     "color": "furnideco:block/rustic/stool/colors/2",
