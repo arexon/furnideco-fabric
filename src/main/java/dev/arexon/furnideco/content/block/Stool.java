@@ -1,5 +1,7 @@
 package dev.arexon.furnideco.content.block;
 
+import dev.arexon.furnideco.FurniDeco;
+import dev.arexon.furnideco.content.entity.SitEntity;
 import dev.arexon.furnideco.content.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
@@ -12,12 +14,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
+import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
 import net.minecraft.world.WorldView;
 
+@SuppressWarnings("deprecation")
 public class Stool extends Block {
 
     public static final Material STOOL_MATERIAL = new Material.Builder(MapColor.OAK_TAN).notSolid().build();
@@ -47,10 +51,18 @@ public class Stool extends Block {
             }
 
             world.setBlockState(pos, state.with(COLOR, color));
-            return ActionResult.SUCCESS;
         } else {
-            return ActionResult.PASS;
+            Vec3d position = new Vec3d(pos.getX()+ .5d, pos.getY()+ .45d, pos.getZ()+ .5d);
+            SitEntity sit = FurniDeco.SIT_ENTITY_TYPE.create(world);
+
+
+            SitEntity.OCCUPIED.put(position, player.getBlockPos());
+            sit.updatePosition(position.getX(), position.getY(), position.getZ());
+
+            world.spawnEntity(sit);
+            player.startRiding(sit);
         }
+        return ActionResult.SUCCESS;
     }
 
     @Override
