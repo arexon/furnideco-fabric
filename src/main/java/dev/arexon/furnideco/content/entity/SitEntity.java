@@ -1,16 +1,18 @@
 package dev.arexon.furnideco.content.entity;
 
 import dev.arexon.furnideco.FurniDeco;
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityType;
-import net.minecraft.entity.LivingEntity;
+import net.minecraft.entity.*;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.nbt.NbtCompound;
 import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
+import net.minecraft.util.Arm;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.math.Box;
+import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
+import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
@@ -32,19 +34,25 @@ public class SitEntity extends Entity {
 
     @Override
     public Vec3d updatePassengerForDismount(LivingEntity passenger) {
+        if (passenger instanceof PlayerEntity) {
 
-        if(passenger instanceof PlayerEntity) {
-
-            BlockPos pos = OCCUPIED.remove(getPos());
-            if(pos != null) {
-
-                remove(RemovalReason.DISCARDED);
-                return new Vec3d(pos.getX(), pos.getY(), pos.getZ());
-            }
+            OCCUPIED.remove(getPos());
         }
 
         remove(RemovalReason.DISCARDED);
-        return super.updatePassengerForDismount(passenger);
+
+        Vec3d vec3d = SitEntity.getPassengerDismountOffset(this.getWidth(), passenger.getWidth(), this.getYaw() + (passenger.getMainArm() == Arm.RIGHT ? 90.0f : -90.0f));
+        Vec3d vec3d2 = this.locateSafeDismountingPos(vec3d, passenger);
+        if (vec3d2 != null) {
+            return vec3d2;
+        }
+        Vec3d vec3d3 = SitEntity.getPassengerDismountOffset(this.getWidth(), passenger.getWidth(), this.getYaw() + (passenger.getMainArm() == Arm.LEFT ? 90.0f : -90.0f));
+        Vec3d vec3d4 = this.locateSafeDismountingPos(vec3d3, passenger);
+        if (vec3d4 != null) {
+            return vec3d4;
+        }
+        return this.getPos();
+
     }
 
     @Override
@@ -67,5 +75,29 @@ public class SitEntity extends Entity {
     public Packet<?> createSpawnPacket() {
 
         return new EntitySpawnS2CPacket(this);
+    }
+
+    @Nullable
+    private Vec3d locateSafeDismountingPos(Vec3d offset, LivingEntity passenger) {
+        double d = this.getX() + offset.x;
+        double e = this.getBoundingBox().minY;
+        double f = this.getZ() + offset.z;
+        BlockPos.Mutable mutable = new BlockPos.Mutable();
+        block0: for (EntityPose entityPose : passenger.getPoses()) {
+            mutable.set(d, e, f);
+            double g = this.getBoundingBox().maxY + 0.75;
+            do {
+                Vec3d vec3d;
+                Box box;
+                double h = this.world.getDismountHeight(mutable);
+                if ((double)mutable.getY() + h > g) continue block0;
+                if (Dismounting.canDismountInBlock(h) && Dismounting.canPlaceEntityAt(this.world, passenger, (box = passenger.getBoundingBox(entityPose)).offset(vec3d = new Vec3d(d, (double)mutable.getY() + h, f)))) {
+                    passenger.setPose(entityPose);
+                    return vec3d;
+                }
+                mutable.move(Direction.UP);
+            } while ((double)mutable.getY() < g);
+        }
+        return null;
     }
 }
