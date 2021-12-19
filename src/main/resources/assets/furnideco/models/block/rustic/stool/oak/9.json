@@ -1,7 +1,8 @@
 {
-	"parent": "furnideco:block/rustic/stool/oak/stool",
+	"parent": "furnideco:block/rustic/stool/stool",
 	"textures": {
 		"material": "furnideco:block/rustic/stool/wood/oak",
-		"color": "furnideco:block/rustic/stool/colors/9"
+		"color": "furnideco:block/rustic/stool/colors/9",
+		"particle": "block/oak_planks"
 	}
 }

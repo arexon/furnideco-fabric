@@ -13,6 +13,13 @@ public class FurniDecoClient implements ClientModInitializer {
     @Override
     public void onInitializeClient(){
 
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ACACIA_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BIRCH_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CRIMSON_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DARK_OAK_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.JUNGLE_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.OAK_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SPRUCE_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WARPED_STOOL, RenderLayer.getCutout());
     }
 }

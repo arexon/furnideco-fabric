@@ -1,0 +1,8 @@
+{
+	"parent": "furnideco:block/rustic/stool/stool",
+	"textures": {
+		"material": "furnideco:block/rustic/stool/wood/spruce",
+		"color": "furnideco:block/rustic/stool/colors/4",
+		"particle": "block/spruce_planks"
+	}
+}

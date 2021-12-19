@@ -1,0 +1,8 @@
+{
+	"parent": "furnideco:block/rustic/stool/stool",
+	"textures": {
+		"material": "furnideco:block/rustic/stool/wood/acacia",
+		"color": "furnideco:block/rustic/stool/colors/8",
+		"particle": "block/acacia_planks"
+	}
+}

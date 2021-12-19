@@ -1,0 +1,20 @@
+{
+  "variants": {
+    "color=0": {"model": "furnideco:block/rustic/stool/spruce/0"},
+    "color=1": {"model": "furnideco:block/rustic/stool/spruce/1"},
+    "color=2": {"model": "furnideco:block/rustic/stool/spruce/2"},
+    "color=3": {"model": "furnideco:block/rustic/stool/spruce/3"},
+    "color=4": {"model": "furnideco:block/rustic/stool/spruce/4"},
+    "color=5": {"model": "furnideco:block/rustic/stool/spruce/5"},
+    "color=6": {"model": "furnideco:block/rustic/stool/spruce/6"},
+    "color=7": {"model": "furnideco:block/rustic/stool/spruce/7"},
+    "color=8": {"model": "furnideco:block/rustic/stool/spruce/8"},
+    "color=9": {"model": "furnideco:block/rustic/stool/spruce/9"},
+    "color=10": {"model": "furnideco:block/rustic/stool/spruce/10"},
+    "color=11": {"model": "furnideco:block/rustic/stool/spruce/11"},
+    "color=12": {"model": "furnideco:block/rustic/stool/spruce/12"},
+    "color=13": {"model": "furnideco:block/rustic/stool/spruce/13"},
+    "color=14": {"model": "furnideco:block/rustic/stool/spruce/14"},
+    "color=15": {"model": "furnideco:block/rustic/stool/spruce/15"}
+  }
+}
