@@ -1,5 +1,6 @@
 package dev.arexon.furnideco.content.block;
 
+import dev.arexon.furnideco.content.item.ItemRegistry;
 import net.fabricmc.fabric.api.object.builder.v1.block.FabricBlockSettings;
 import net.minecraft.block.*;
 import net.minecraft.entity.player.PlayerEntity;
@@ -35,16 +36,21 @@ public class Stool extends Block {
 
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
-        int color = state.get(COLOR);
 
-        if (color >= 15) {
-            color = 0;
+        if (player.getMainHandStack().getItem() == ItemRegistry.PAINT_BRUSH) {
+
+            int color = state.get(COLOR);
+            if (color >= 15) {
+                color = 0;
+            } else {
+                color++;
+            }
+
+            world.setBlockState(pos, state.with(COLOR, color));
+            return ActionResult.SUCCESS;
         } else {
-            color++;
+            return ActionResult.PASS;
         }
-
-        world.setBlockState(pos, state.with(COLOR, color));
-        return ActionResult.SUCCESS;
     }
 
     @Override
