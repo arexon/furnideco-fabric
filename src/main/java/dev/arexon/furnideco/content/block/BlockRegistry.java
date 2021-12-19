@@ -20,7 +20,7 @@ public class BlockRegistry {
     private static Item registerBlockItem(String name, Block block) {
 
         return Registry.register(Registry.ITEM, new Identifier(FurniDeco.MOD_ID, name),
-                new BlockItem(block, new FabricItemSettings().group(ItemGroup.DECORATIONS)));
+                new BlockItem(block, new FabricItemSettings().group(FurniDeco.ITEM_GROUP)));
     }
 
     public static Block STOOL = new Stool();
