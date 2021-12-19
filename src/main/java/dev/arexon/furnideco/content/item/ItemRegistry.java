@@ -14,6 +14,7 @@ public class ItemRegistry {
     }
 
     public static Item PAINT_BRUSH = new PaintBrush();
+
     public static void register() {
 
         registerItem("paint_brush", PAINT_BRUSH);
