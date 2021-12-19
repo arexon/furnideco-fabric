@@ -1,0 +1,123 @@
+{
+	"parent": "block/block",
+	"texture_size": [64, 64],
+	"textures": {
+		"material": "furnideco:block/rustic/step_ladder",
+		"particle": "block/oak_planks"
+	},
+	"elements": [
+		{
+			"name": "root",
+			"from": [0, 14, 2],
+			"to": [16, 16, 14],
+			"faces": {
+				"north": {"uv": [3, 3, 7, 3.5], "texture": "#material"},
+				"east": {"uv": [0, 3, 3, 3.5], "texture": "#material"},
+				"south": {"uv": [10, 3, 14, 3.5], "texture": "#material"},
+				"west": {"uv": [7, 3, 10, 3.5], "texture": "#material"},
+				"up": {"uv": [7, 3, 3, 0], "texture": "#material"},
+				"down": {"uv": [11, 0, 7, 3], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [3, 6, -1.5],
+			"to": [13, 9, 4.5],
+			"faces": {
+				"north": {"uv": [1.5, 5.5, 4, 6.25], "texture": "#material"},
+				"east": {"uv": [0, 5.5, 1.5, 6.25], "texture": "#material"},
+				"south": {"uv": [5.5, 5.5, 8, 6.25], "texture": "#material"},
+				"west": {"uv": [4, 5.5, 5.5, 6.25], "texture": "#material"},
+				"up": {"uv": [4, 5.5, 1.5, 4], "texture": "#material"},
+				"down": {"uv": [6.5, 4, 4, 5.5], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [2, 6, 1],
+			"to": [2, 8, 15],
+			"faces": {
+				"east": {"uv": [3.5, 3.5, 7, 4], "texture": "#material"},
+				"west": {"uv": [3.5, 3.5, 7, 4], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [14, 6, 1],
+			"to": [14, 8, 15],
+			"shade": false,
+			"faces": {
+				"east": {"uv": [7, 3.5, 3.5, 4], "texture": "#material"},
+				"west": {"uv": [7, 3.5, 3.5, 4], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [13, -2, 10],
+			"to": [15, 14, 12],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 14, 10]},
+			"faces": {
+				"north": {"uv": [0.5, 6.75, 1, 10.75], "texture": "#material"},
+				"east": {"uv": [0, 6.75, 0.5, 10.75], "texture": "#material"},
+				"south": {"uv": [1.5, 6.75, 2, 10.75], "texture": "#material"},
+				"west": {"uv": [1, 6.75, 1.5, 10.75], "texture": "#material"},
+				"up": {"uv": [1, 6.75, 0.5, 6.25], "texture": "#material"},
+				"down": {"uv": [1.5, 6.25, 1, 6.75], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [1, -2, 10],
+			"to": [3, 14, 12],
+			"shade": false,
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 14, 10]},
+			"faces": {
+				"north": {"uv": [1, 6.75, 0.5, 10.75], "texture": "#material"},
+				"east": {"uv": [1.5, 6.75, 1, 10.75], "texture": "#material"},
+				"south": {"uv": [2, 6.75, 1.5, 10.75], "texture": "#material"},
+				"west": {"uv": [0.5, 6.75, 0, 10.75], "texture": "#material"},
+				"up": {"uv": [0.5, 6.75, 1, 6.25], "texture": "#material"},
+				"down": {"uv": [1, 6.25, 1.5, 6.75], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [1, -2, 4],
+			"to": [3, 14, 6],
+			"shade": false,
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 14, 6]},
+			"faces": {
+				"north": {"uv": [1, 6.75, 0.5, 10.75], "texture": "#material"},
+				"east": {"uv": [1.5, 6.75, 1, 10.75], "texture": "#material"},
+				"south": {"uv": [2, 6.75, 1.5, 10.75], "texture": "#material"},
+				"west": {"uv": [0.5, 6.75, 0, 10.75], "texture": "#material"},
+				"up": {"uv": [0.5, 6.75, 1, 6.25], "texture": "#material"},
+				"down": {"uv": [1, 6.25, 1.5, 6.75], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [13, -2, 4],
+			"to": [15, 14, 6],
+			"rotation": {"angle": 22.5, "axis": "x", "origin": [8, 14, 6]},
+			"faces": {
+				"north": {"uv": [0.5, 6.75, 1, 10.75], "texture": "#material"},
+				"east": {"uv": [0, 6.75, 0.5, 10.75], "texture": "#material"},
+				"south": {"uv": [1.5, 6.75, 2, 10.75], "texture": "#material"},
+				"west": {"uv": [1, 6.75, 1.5, 10.75], "texture": "#material"},
+				"up": {"uv": [1, 6.75, 0.5, 6.25], "texture": "#material"},
+				"down": {"uv": [1.5, 6.25, 1, 6.75], "texture": "#material"}
+			}
+		},
+		{
+			"name": "root",
+			"from": [3, 1, 11],
+			"to": [13, 4, 11],
+			"rotation": {"angle": -22.5, "axis": "x", "origin": [8, 14, 10]},
+			"faces": {
+				"north": {"uv": [2, 6.25, 4.5, 7], "texture": "#material"},
+				"south": {"uv": [2, 6.25, 4.5, 7], "texture": "#material"}
+			}
+		}
+	]
+}
