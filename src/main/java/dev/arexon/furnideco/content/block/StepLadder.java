@@ -14,9 +14,12 @@ import net.minecraft.world.BlockView;
 @SuppressWarnings("deprecation")
 public class StepLadder extends Block {
 
-    protected static final VoxelShape SHAPE = VoxelShapes.cuboid(.0d/16, .0d/16, 2.d/16, 16.d/16, 16.d/16, 14.d/16);
-    protected static final VoxelShape SHAPE1 = VoxelShapes.cuboid(3.d/16, 0.d/16, .0d/16, 13.d/16, 9.d/16, 3.d/16);
-    protected static final VoxelShape SHAPE2 = VoxelShapes.combine(SHAPE, SHAPE1, BooleanBiFunction.OR);
+    protected static final VoxelShape SHAPE2 = VoxelShapes.combine(
+            VoxelShapes.cuboid(0d, 0d, .125d, 1.d, 1.d, .875d),
+            VoxelShapes.cuboid(.1875d, .0d, .0d, .8125d, .5625d, .1875d),
+            BooleanBiFunction.OR
+    );
+
     public StepLadder() {
 
         super(FabricBlockSettings.of(FurniDecoMaterials.NON_SOLID_MATERIAL).requiresTool().nonOpaque());
