@@ -34,10 +34,6 @@ public class Stool extends Block {
     public Stool() {
 
         super(FabricBlockSettings.of(FurniDecoMaterials.NON_SOLID_MATERIAL).requiresTool().nonOpaque());
-    }
-
-    public Stool(Settings settings) {
-        super(settings);
         setDefaultState(getStateManager().getDefaultState().with(COLOR, 0));
     }
 
