@@ -25,22 +25,26 @@ public class Television extends Block {
     private static final VoxelShape SHAPE_ROTATED = VoxelShapeUtils.rotateHorizontal(SHAPE, 90);
 
     public Television() {
+
         super(FabricBlockSettings.of(FurniDecoMaterials.NON_SOLID_MATERIAL).requiresTool().nonOpaque());
         setDefaultState(this.stateManager.getDefaultState().with(Properties.HORIZONTAL_FACING, Direction.NORTH));
     }
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
+
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+
         return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+
         Direction dir = state.get(Properties.HORIZONTAL_FACING);
         return switch (dir) {
             case NORTH, SOUTH -> SHAPE;
@@ -51,11 +55,13 @@ public class Television extends Block {
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+
         return !world.getBlockState(pos.down()).isAir();
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
+
         return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
                 : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
