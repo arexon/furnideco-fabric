@@ -25,26 +25,10 @@ public class StepLadder extends Block {
     private static final VoxelShape SECOND_STEP = VoxelShapes.cuboid(.1875d, .0d, .0d, .8125d, .5625d, .1875d);
     private static final VoxelShape MAIN_STEP_ROTATED = VoxelShapeUtils.rotateHorizontal(MAIN_STEP, 90);
 
-    protected static final VoxelShape NORTH_SHAPE = VoxelShapes.union(
-            MAIN_STEP,
-            SECOND_STEP
-    );
-
-    protected static final VoxelShape EAST_SHAPE = VoxelShapes.union(
-            MAIN_STEP_ROTATED,
-            VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 270)
-    );
-
-    protected static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(
-            MAIN_STEP,
-            VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 180)
-    );
-
-    protected static final VoxelShape WEST_SHAPE = VoxelShapes.union(
-            MAIN_STEP_ROTATED,
-            VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 90)
-    );
-
+    protected static final VoxelShape NORTH_SHAPE = VoxelShapes.union(MAIN_STEP, SECOND_STEP);
+    protected static final VoxelShape SOUTH_SHAPE = VoxelShapes.union(MAIN_STEP, VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 180));
+    protected static final VoxelShape EAST_SHAPE = VoxelShapes.union(MAIN_STEP_ROTATED, VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 270));
+    protected static final VoxelShape WEST_SHAPE = VoxelShapes.union(MAIN_STEP_ROTATED, VoxelShapeUtils.rotateHorizontal(SECOND_STEP, 90));
 
     public StepLadder() {
 
@@ -54,11 +38,13 @@ public class StepLadder extends Block {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
+
         stateManager.add(Properties.HORIZONTAL_FACING);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+
         Direction dir = state.get(Properties.HORIZONTAL_FACING);
         return switch (dir) {
             case NORTH, SOUTH -> MAIN_STEP;
@@ -69,6 +55,7 @@ public class StepLadder extends Block {
 
     @Override
     public VoxelShape getCollisionShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+
         Direction dir = state.get(Properties.HORIZONTAL_FACING);
         return switch (dir) {
             case NORTH -> NORTH_SHAPE;
@@ -81,16 +68,19 @@ public class StepLadder extends Block {
 
     @Override
     public BlockState getPlacementState(ItemPlacementContext ctx) {
+
         return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+
         return !world.getBlockState(pos.down()).isAir();
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
+
         return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
                 : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }

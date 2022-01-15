@@ -29,8 +29,8 @@ import net.minecraft.world.WorldView;
 public class Stool extends Block {
     // TODO: Fix stool dismounting when broken.
 
-    protected static final VoxelShape SHAPE = VoxelShapes.cuboid(1.d/16, .0d/16, 1.d/16, 15.d/16, 11.d/16, 15.d/16);
     public static final IntProperty COLOR = IntProperty.of("color", 0, 15);
+    protected static final VoxelShape SHAPE = VoxelShapes.cuboid(0.0625d, 0.d, 0.0625d, 0.9375d, 0.6875d, 0.9375d);
 
     public Stool() {
 
@@ -52,9 +52,9 @@ public class Stool extends Block {
 
             world.setBlockState(pos, state.with(COLOR, color));
         } else {
-            Vec3d position = new Vec3d(pos.getX()+ .5d, pos.getY()+ .45d, pos.getZ()+ .5d);
-            SitEntity sit = FurniDeco.SIT_ENTITY_TYPE.create(world);
 
+            Vec3d position = new Vec3d(pos.getX() + .5d, pos.getY() + .45d, pos.getZ() + .5d);
+            SitEntity sit = FurniDeco.SIT_ENTITY_TYPE.create(world);
 
             SitEntity.OCCUPIED.put(position, player.getBlockPos());
             assert sit != null;
@@ -68,21 +68,25 @@ public class Stool extends Block {
 
     @Override
     protected void appendProperties(StateManager.Builder<Block, BlockState> stateManager) {
+
         stateManager.add(COLOR);
     }
 
     @Override
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
+
         return SHAPE;
     }
 
     @Override
     public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
+
         return world.getBlockState(pos.down()).getMaterial().isSolid();
     }
 
     @Override
     public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
+
         return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
                 : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
