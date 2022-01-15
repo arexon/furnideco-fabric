@@ -27,9 +27,8 @@ public class VoxelShapeUtils {
             this.y = y;
         }
 
-        /** Rotates around the Y axis at (0.5, 0, 0.5) */
         public MutableVec2d rotate(double amount) {
-            amount *= Math.PI/180.0; //Convert amount to radians because it's definitely in degrees
+            amount *= Math.PI/180.0;
             double tx = x-0.5;
             double ty = y-0.5;
 

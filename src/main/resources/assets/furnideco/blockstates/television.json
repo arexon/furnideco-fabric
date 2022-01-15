@@ -1,0 +1,8 @@
+{
+  "variants": {
+    "facing=north": { "model": "furnideco:block/rustic/television"},
+    "facing=east":  { "model": "furnideco:block/rustic/television", "y":  90},
+    "facing=south": { "model": "furnideco:block/rustic/television", "y": 180},
+    "facing=west":  { "model": "furnideco:block/rustic/television", "y": 270}
+  }
+}

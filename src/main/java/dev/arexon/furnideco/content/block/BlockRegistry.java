@@ -4,21 +4,20 @@ import dev.arexon.furnideco.FurniDeco;
 import net.fabricmc.fabric.api.item.v1.FabricItemSettings;
 import net.minecraft.block.Block;
 import net.minecraft.item.BlockItem;
-import net.minecraft.item.Item;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.registry.Registry;
 
 public class BlockRegistry {
 
-    private static Block registerBlock(String name, Block block) {
+    private static void registerBlock(String name, Block block) {
 
         registerBlockItem(name, block);
-        return Registry.register(Registry.BLOCK, new Identifier(FurniDeco.MOD_ID, name), block);
+        Registry.register(Registry.BLOCK, new Identifier(FurniDeco.MOD_ID, name), block);
     }
 
-    private static Item registerBlockItem(String name, Block block) {
+    private static void registerBlockItem(String name, Block block) {
 
-        return Registry.register(Registry.ITEM, new Identifier(FurniDeco.MOD_ID, name),
+        Registry.register(Registry.ITEM, new Identifier(FurniDeco.MOD_ID, name),
                 new BlockItem(block, new FabricItemSettings().group(FurniDeco.ITEM_GROUP)));
     }
 
@@ -31,6 +30,7 @@ public class BlockRegistry {
     public static Block SPRUCE_STOOL = new Stool();
     public static Block WARPED_STOOL = new Stool();
     public static Block STEP_LADDER = new StepLadder();
+    public static Block TELEVISION = new Television();
 
     public static void register() {
 
@@ -43,5 +43,6 @@ public class BlockRegistry {
         registerBlock("spruce_stool", SPRUCE_STOOL);
         registerBlock("warped_stool", WARPED_STOOL);
         registerBlock("step_ladder", STEP_LADDER);
+        registerBlock("television", TELEVISION);
     }
 }
