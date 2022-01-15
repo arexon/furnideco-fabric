@@ -27,6 +27,7 @@ import net.minecraft.world.WorldView;
 
 @SuppressWarnings("deprecation")
 public class Stool extends Block {
+    // TODO: Fix stool dismounting when broken.
 
     protected static final VoxelShape SHAPE = VoxelShapes.cuboid(1.d/16, .0d/16, 1.d/16, 15.d/16, 11.d/16, 15.d/16);
     public static final IntProperty COLOR = IntProperty.of("color", 0, 15);
@@ -56,6 +57,7 @@ public class Stool extends Block {
 
 
             SitEntity.OCCUPIED.put(position, player.getBlockPos());
+            assert sit != null;
             sit.updatePosition(position.getX(), position.getY(), position.getZ());
 
             world.spawnEntity(sit);
