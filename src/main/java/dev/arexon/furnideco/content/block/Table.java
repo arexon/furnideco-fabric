@@ -18,15 +18,4 @@ public class Table extends Block {
         super(FabricBlockSettings.of(FurniDecoMaterials.NON_SOLID_MATERIAL).requiresTool().nonOpaque());
     }
 
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-
-        return !world.getBlockState(pos.down()).getMaterial().isSolid();
-    }
-
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-        return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
-                : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
-    }
 }

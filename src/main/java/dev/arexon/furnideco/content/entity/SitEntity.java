@@ -12,14 +12,13 @@ import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
-import org.jetbrains.annotations.Nullable;
 
 import java.util.HashMap;
 
 public class SitEntity extends Entity {
     // Thanks to https://github.com/bl4ckscor3/Sit, this was not a pain to make.
 
-    public static final HashMap<Vec3d,BlockPos> OCCUPIED = new HashMap<>();
+    public static final HashMap<BlockPos, Vec3d> OCCUPIED = new HashMap<>();
 
     public SitEntity(EntityType<? extends SitEntity> type, World world) {
 
@@ -32,11 +31,12 @@ public class SitEntity extends Entity {
         noClip = true;
     }
 
+
     @Override
     public Vec3d updatePassengerForDismount(LivingEntity passenger) {
         if (passenger instanceof PlayerEntity) {
 
-            OCCUPIED.remove(getPos());
+            OCCUPIED.remove(getBlockPos());
         }
 
         remove(RemovalReason.DISCARDED);
@@ -59,7 +59,7 @@ public class SitEntity extends Entity {
     public void remove(RemovalReason reason) {
 
         super.remove(reason);
-        OCCUPIED.remove(getPos());
+        OCCUPIED.remove(getBlockPos());
     }
 
     @Override
@@ -77,7 +77,6 @@ public class SitEntity extends Entity {
         return new EntitySpawnS2CPacket(this);
     }
 
-    @Nullable
     private Vec3d locateSafeDismountingPos(Vec3d offset, LivingEntity passenger) {
         double d = this.getX() + offset.x;
         double e = this.getBoundingBox().minY;

@@ -17,13 +17,14 @@ import net.minecraft.util.Hand;
 import net.minecraft.util.hit.BlockHitResult;
 import net.minecraft.util.math.BlockPos;
 import net.minecraft.util.math.Direction;
-import net.minecraft.util.math.Vec3d;
 import net.minecraft.util.shape.VoxelShape;
 import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldAccess;
-import net.minecraft.world.WorldView;
+
+import static dev.arexon.furnideco.FurniDeco.SIT_ENTITY_TYPE;
+import static dev.arexon.furnideco.content.entity.SitEntity.OCCUPIED;
 
 @SuppressWarnings("deprecation")
 public class Stool extends Block {
@@ -41,27 +42,30 @@ public class Stool extends Block {
     @Override
     public ActionResult onUse(BlockState state, World world, BlockPos pos, PlayerEntity player, Hand hand, BlockHitResult hit) {
 
-        if (player.getMainHandStack().getItem() == ItemRegistry.PAINT_BRUSH) {
+        if(!world.isClient){
+            if (player.getMainHandStack().getItem() == ItemRegistry.PAINT_BRUSH) {
 
-            int color = state.get(COLOR);
-            if (color >= 15) {
-                color = 0;
+                int color = state.get(COLOR);
+                if (color >= 15) {
+                    color = 0;
+                } else {
+                    color++;
+                }
+
+                world.setBlockState(pos, state.with(COLOR, color));
             } else {
-                color++;
+
+                if (!OCCUPIED.containsKey(pos) && world.getBlockState(pos.up()).isAir()) {
+                  SitEntity sit = SIT_ENTITY_TYPE.create(world);
+
+                  OCCUPIED.put(pos, player.getPos());
+                  sit.updatePosition(pos.getX() + .5d, pos.getY() + .45d, pos.getZ() + .5d);
+
+                  world.spawnEntity(sit);
+                  player.startRiding(sit);
+                  return ActionResult.SUCCESS;
+                }
             }
-
-            world.setBlockState(pos, state.with(COLOR, color));
-        } else {
-
-            Vec3d position = new Vec3d(pos.getX() + .5d, pos.getY() + .45d, pos.getZ() + .5d);
-            SitEntity sit = FurniDeco.SIT_ENTITY_TYPE.create(world);
-
-            SitEntity.OCCUPIED.put(position, player.getBlockPos());
-            assert sit != null;
-            sit.updatePosition(position.getX(), position.getY(), position.getZ());
-
-            world.spawnEntity(sit);
-            player.startRiding(sit);
         }
         return ActionResult.SUCCESS;
     }
@@ -76,19 +80,6 @@ public class Stool extends Block {
     public VoxelShape getOutlineShape(BlockState state, BlockView view, BlockPos pos, ShapeContext context) {
 
         return SHAPE;
-    }
-
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-
-        return world.getBlockState(pos.down()).getMaterial().isSolid();
-    }
-
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-
-        return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
-                : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
     }
 
 }
