@@ -17,12 +17,14 @@ import net.minecraft.util.registry.Registry;
 public class FurniDeco implements ModInitializer {
 
 	public static final String MOD_ID = "furnideco";
+
 	public static final ItemGroup ITEM_GROUP = FabricItemGroupBuilder.build(
 			new Identifier(MOD_ID, MOD_ID),
 			() -> new ItemStack(ItemRegistry.PAINT_BRUSH));
+
 	public static final EntityType<SitEntity> SIT_ENTITY_TYPE = Registry.register(
 			Registry.ENTITY_TYPE,
-			new Identifier(MOD_ID, "sitable"),
+			new Identifier(MOD_ID, "sit"),
 			FabricEntityTypeBuilder.<SitEntity>create(SpawnGroup.MISC, SitEntity::new).dimensions(EntityDimensions.fixed(0.001F, 0.001F)).build()
 	);
 

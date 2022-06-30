@@ -72,17 +72,4 @@ public class StepLadder extends Block {
         return this.getDefaultState().with(Properties.HORIZONTAL_FACING, ctx.getPlayerFacing().getOpposite());
     }
 
-    @Override
-    public boolean canPlaceAt(BlockState state, WorldView world, BlockPos pos) {
-
-        return !world.getBlockState(pos.down()).isAir();
-    }
-
-    @Override
-    public BlockState getStateForNeighborUpdate(BlockState state, Direction direction, BlockState newState, WorldAccess world, BlockPos pos, BlockPos posFrom) {
-
-        return direction == Direction.DOWN && !state.canPlaceAt(world, pos) ? Blocks.AIR.getDefaultState()
-                : super.getStateForNeighborUpdate(state, direction, newState, world, pos, posFrom);
-    }
-
 }
