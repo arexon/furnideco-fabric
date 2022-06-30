@@ -1,4 +1,4 @@
-# FurniDeco (🚧 WIP)
+# FurniDeco for Minecraft Java (Fabric) 🚧 WIP
 
 ![FurniDeco Key Art](https://arexon.dev/pages/furnideco/thumbnail.png)
 
