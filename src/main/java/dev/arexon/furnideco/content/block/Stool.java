@@ -12,7 +12,6 @@ import net.minecraft.block.ShapeContext;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.LivingEntity;
 import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.particle.ParticleTypes;
 import net.minecraft.server.world.ServerWorld;
 import net.minecraft.sound.SoundCategory;
 import net.minecraft.state.StateManager;
@@ -27,8 +26,6 @@ import net.minecraft.util.shape.VoxelShapes;
 import net.minecraft.world.BlockView;
 import net.minecraft.world.World;
 import net.minecraft.world.event.GameEvent;
-
-import java.util.Objects;
 
 import static dev.arexon.furnideco.FurniDeco.SIT_ENTITY_TYPE;
 import static dev.arexon.furnideco.content.entity.SitEntity.OCCUPIED;
@@ -61,14 +58,13 @@ public class Stool extends Block {
 
                 world.playSound(null, pos, SoundRegistry.PAINT_SOUND_EVENT, SoundCategory.BLOCKS, 1f, 1f);
 
-                ServerWorld serverWorld = Objects.requireNonNull(world.getServer()).getWorld(world.getRegistryKey());
-
-                assert serverWorld != null;
-                spawnFoundParticles(serverWorld, pos);
+                if (world instanceof ServerWorld serverWorld) {
+                    spawnPaintParticles(serverWorld, pos);
+                }
 
             } else {
 
-                if (!OCCUPIED.containsKey(pos) && world.getBlockState(pos.up()).isAir()) {
+                if (!OCCUPIED.containsKey(pos) && world.getBlockState(pos.up()).isAir() && !player.hasVehicle()) {
                     SitEntity sit = SIT_ENTITY_TYPE.create(world);
 
                     OCCUPIED.put(pos, sit);
@@ -85,7 +81,7 @@ public class Stool extends Block {
         return ActionResult.SUCCESS;
     }
 
-    private void spawnFoundParticles(ServerWorld world, BlockPos pos) {
+    private void spawnPaintParticles(ServerWorld world, BlockPos pos) {
         world.spawnParticles(
                     ParticleRegistry.PAINT_PARTICLE,
                     pos.getX() + 0.5D,

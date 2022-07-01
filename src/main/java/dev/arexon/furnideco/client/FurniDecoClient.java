@@ -47,8 +47,8 @@ public class FurniDecoClient implements ClientModInitializer {
 
     private static class EmptyRenderer extends EntityRenderer<SitEntity>
     {
-        protected EmptyRenderer(EntityRendererFactory.Context ctx)
-        {
+        protected EmptyRenderer(EntityRendererFactory.Context ctx) {
+
             super(ctx);
         }
 

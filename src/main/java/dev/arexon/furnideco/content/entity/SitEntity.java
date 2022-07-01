@@ -8,7 +8,6 @@ import net.minecraft.network.Packet;
 import net.minecraft.network.packet.s2c.play.EntitySpawnS2CPacket;
 import net.minecraft.util.Arm;
 import net.minecraft.util.math.BlockPos;
-import net.minecraft.util.math.Box;
 import net.minecraft.util.math.Direction;
 import net.minecraft.util.math.Vec3d;
 import net.minecraft.world.World;
@@ -23,12 +22,6 @@ public class SitEntity extends Entity {
     public SitEntity(EntityType<? extends SitEntity> type, World world) {
 
         super(type, world);
-    }
-
-    public SitEntity(World world) {
-
-        super(FurniDeco.SIT_ENTITY_TYPE, world);
-        noClip = true;
     }
 
 
