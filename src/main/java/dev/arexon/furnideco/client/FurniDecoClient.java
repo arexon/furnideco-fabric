@@ -3,15 +3,21 @@ package dev.arexon.furnideco.client;
 import dev.arexon.furnideco.FurniDeco;
 import dev.arexon.furnideco.content.block.BlockRegistry;
 import dev.arexon.furnideco.content.entity.SitEntity;
+import dev.arexon.furnideco.content.particle.PaintParticle;
+import dev.arexon.furnideco.content.particle.ParticleRegistry;
 import net.fabricmc.api.ClientModInitializer;
 import net.fabricmc.api.EnvType;
 import net.fabricmc.api.Environment;
 import net.fabricmc.fabric.api.blockrenderlayer.v1.BlockRenderLayerMap;
+import net.fabricmc.fabric.api.client.particle.v1.ParticleFactoryRegistry;
 import net.fabricmc.fabric.api.client.rendereregistry.v1.EntityRendererRegistry;
+import net.fabricmc.fabric.api.event.client.ClientSpriteRegistryCallback;
+import net.minecraft.client.particle.FlameParticle;
 import net.minecraft.client.render.Frustum;
 import net.minecraft.client.render.RenderLayer;
 import net.minecraft.client.render.entity.EntityRenderer;
 import net.minecraft.client.render.entity.EntityRendererFactory;
+import net.minecraft.screen.PlayerScreenHandler;
 import net.minecraft.util.Identifier;
 
 @SuppressWarnings("deprecation")
@@ -32,6 +38,10 @@ public class FurniDecoClient implements ClientModInitializer {
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WARPED_STOOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEP_LADDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEP_LADDER, RenderLayer.getCutout());
+
+        ClientSpriteRegistryCallback.event(PlayerScreenHandler.BLOCK_ATLAS_TEXTURE).register(((atlas, registry) -> registry.register(new Identifier(FurniDeco.MOD_ID, "particle/paint"))));
+
+        ParticleFactoryRegistry.getInstance().register(ParticleRegistry.PAINT_PARTICLE, PaintParticle.Factory::new);
 
     }
 

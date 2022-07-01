@@ -18,7 +18,7 @@ import java.util.HashMap;
 public class SitEntity extends Entity {
     // Thanks to https://github.com/bl4ckscor3/Sit, this was not a pain to make.
 
-    public static final HashMap<BlockPos, Vec3d> OCCUPIED = new HashMap<>();
+    public static final HashMap<BlockPos, SitEntity> OCCUPIED = new HashMap<>();
 
     public SitEntity(EntityType<? extends SitEntity> type, World world) {
 
@@ -87,10 +87,9 @@ public class SitEntity extends Entity {
             double g = this.getBoundingBox().maxY + 0.75;
             do {
                 Vec3d vec3d;
-                Box box;
                 double h = this.world.getDismountHeight(mutable);
                 if ((double)mutable.getY() + h > g) continue block0;
-                if (Dismounting.canDismountInBlock(h) && Dismounting.canPlaceEntityAt(this.world, passenger, (box = passenger.getBoundingBox(entityPose)).offset(vec3d = new Vec3d(d, (double)mutable.getY() + h, f)))) {
+                if (Dismounting.canDismountInBlock(h) && Dismounting.canPlaceEntityAt(this.world, passenger, (passenger.getBoundingBox(entityPose)).offset(vec3d = new Vec3d(d, (double)mutable.getY() + h, f)))) {
                     passenger.setPose(entityPose);
                     return vec3d;
                 }

@@ -1,0 +1,8 @@
+{
+  "customization.paint": {
+    "subtitle": "subtitles.furnideco.customization.paint",
+    "sounds": [
+      "furnideco:customization/paint"
+    ]
+  }
+}

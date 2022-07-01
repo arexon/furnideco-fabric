@@ -3,6 +3,8 @@ package dev.arexon.furnideco;
 import dev.arexon.furnideco.content.block.BlockRegistry;
 import dev.arexon.furnideco.content.entity.SitEntity;
 import dev.arexon.furnideco.content.item.ItemRegistry;
+import dev.arexon.furnideco.content.particle.ParticleRegistry;
+import dev.arexon.furnideco.content.sound.SoundRegistry;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.client.itemgroup.FabricItemGroupBuilder;
 import net.fabricmc.fabric.api.object.builder.v1.entity.FabricEntityTypeBuilder;
@@ -33,5 +35,7 @@ public class FurniDeco implements ModInitializer {
 
 		BlockRegistry.register();
 		ItemRegistry.register();
+		SoundRegistry.register();
+		ParticleRegistry.register();
 	}
 }
