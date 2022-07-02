@@ -1,3 +1,5 @@
+import net.fabricmc.loom.configuration.ide.RunConfigSettings
+
 plugins {
 	id 'fabric-loom' version '0.10-SNAPSHOT'
 	id 'maven-publish'
@@ -18,8 +20,23 @@ repositories {
 	// for more information about repositories.
 }
 
+loom {
+	runs {
+		datagen {
+			server()
+
+			name = "Data Generation"
+			runDir = "build/datagen"
+
+			vmArg("-Dfabric-api.datagen")
+			vmArg("-Dfabric-api.datagen.output-dir=${file("src/main/generated")}")
+		}
+	}
+}
+assemble.dependsOn(runDatagen)
+
 dependencies {
-	implementation 'org.jetbrains:annotations:20.1.0'
+	implementation 'org.jetbrains:annotations:23.0.0'
 
 	// To change the versions see the gradle.properties file
 	minecraft "com.mojang:minecraft:${project.minecraft_version}"
@@ -28,6 +45,10 @@ dependencies {
 
 	// Fabric API. This is technically optional, but you probably want it anyway.
 	modImplementation "net.fabricmc.fabric-api:fabric-api:${project.fabric_version}"
+}
+
+sourceSets.main.resources {
+	srcDirs += 'src/main/generated'
 }
 
 processResources {
