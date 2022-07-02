@@ -1,0 +1,7 @@
+{
+    "parent": "furnideco:block/rustic/table/table",
+    "textures": {
+        "material": "furnideco:block/rustic/table/birch",
+        "particle": "block/birch_planks"
+    }
+}

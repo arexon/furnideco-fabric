@@ -1,7 +1,7 @@
 {
-  "parent": "furnideco:block/rustic/table/table",
-  "textures": {
-    "material": "furnideco:block/rustic/table/oak",
-    "particle": "block/oak_planks"
-  }
+    "parent": "furnideco:block/rustic/table/table",
+    "textures": {
+        "material": "furnideco:block/rustic/table/oak",
+        "particle": "block/oak_planks"
+    }
 }
