@@ -24,9 +24,6 @@
     ],
     "client": [
       "dev.arexon.furnideco.client.FurniDecoClient"
-    ],
-    "fabric-datagen" : [
-      "dev.arexon.furnideco.datagen.FurniDecoDataGen"
     ]
   },
 
