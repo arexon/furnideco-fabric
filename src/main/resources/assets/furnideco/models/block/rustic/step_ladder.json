@@ -1,6 +1,5 @@
 {
 	"parent": "block/block",
-	"texture_size": [64, 64],
 	"textures": {
 		"material": "furnideco:block/rustic/step_ladder",
 		"particle": "block/oak_planks"
