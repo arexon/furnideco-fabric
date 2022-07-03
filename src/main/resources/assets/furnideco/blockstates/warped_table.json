@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "shape=north_end": {"model": "furnideco:block/rustic/table/north_end/warped"},
+    "shape=south_end": {"model": "furnideco:block/rustic/table/south_end/warped"},
+    "shape=east_end": {"model": "furnideco:block/rustic/table/east_end/warped"},
+    "shape=west_end": {"model": "furnideco:block/rustic/table/west_end/warped"},
+    "shape=ne_corner": {"model": "furnideco:block/rustic/table/ne_corner/warped"},
+    "shape=se_corner": {"model": "furnideco:block/rustic/table/se_corner/warped"},
+    "shape=sw_corner": {"model": "furnideco:block/rustic/table/sw_corner/warped"},
+    "shape=nw_corner": {"model": "furnideco:block/rustic/table/nw_corner/warped"},
+    "shape=all": {"model": "furnideco:block/rustic/table/table/warped"},
+    "shape=none": {"model": "furnideco:block/rustic/table/none/warped"}
+  }
+}

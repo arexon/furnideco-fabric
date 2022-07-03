@@ -28,14 +28,25 @@ public class FurniDecoClient implements ClientModInitializer {
     public void onInitializeClient(){
 
         EntityRendererRegistry.INSTANCE.register(FurniDeco.SIT_ENTITY_TYPE, EmptyRenderer::new);
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ACACIA_STOOL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BIRCH_STOOL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CRIMSON_STOOL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DARK_OAK_STOOL, RenderLayer.getCutout());
-        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.JUNGLE_STOOL, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.OAK_STOOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SPRUCE_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BIRCH_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.JUNGLE_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ACACIA_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DARK_OAK_STOOL, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CRIMSON_STOOL, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WARPED_STOOL, RenderLayer.getCutout());
+
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.OAK_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.SPRUCE_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.BIRCH_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.JUNGLE_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.ACACIA_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.DARK_OAK_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.CRIMSON_TABLE, RenderLayer.getCutout());
+        BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.WARPED_TABLE, RenderLayer.getCutout());
+
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEP_LADDER, RenderLayer.getCutout());
         BlockRenderLayerMap.INSTANCE.putBlock(BlockRegistry.STEP_LADDER, RenderLayer.getCutout());
 

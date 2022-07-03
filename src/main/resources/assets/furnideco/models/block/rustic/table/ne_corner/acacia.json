@@ -1,0 +1,7 @@
+{
+    "parent": "furnideco:block/rustic/table/ne_corner",
+    "textures": {
+        "material": "furnideco:block/rustic/table/acacia",
+        "particle": "block/acacia_planks"
+    }
+}

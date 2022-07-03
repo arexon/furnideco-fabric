@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "shape=north_end": {"model": "furnideco:block/rustic/table/north_end/acacia"},
+    "shape=south_end": {"model": "furnideco:block/rustic/table/south_end/acacia"},
+    "shape=east_end": {"model": "furnideco:block/rustic/table/east_end/acacia"},
+    "shape=west_end": {"model": "furnideco:block/rustic/table/west_end/acacia"},
+    "shape=ne_corner": {"model": "furnideco:block/rustic/table/ne_corner/acacia"},
+    "shape=se_corner": {"model": "furnideco:block/rustic/table/se_corner/acacia"},
+    "shape=sw_corner": {"model": "furnideco:block/rustic/table/sw_corner/acacia"},
+    "shape=nw_corner": {"model": "furnideco:block/rustic/table/nw_corner/acacia"},
+    "shape=all": {"model": "furnideco:block/rustic/table/table/acacia"},
+    "shape=none": {"model": "furnideco:block/rustic/table/none/acacia"}
+  }
+}

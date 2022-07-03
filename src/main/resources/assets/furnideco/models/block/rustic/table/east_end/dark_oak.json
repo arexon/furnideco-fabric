@@ -1,0 +1,7 @@
+{
+    "parent": "furnideco:block/rustic/table/east_end",
+    "textures": {
+        "material": "furnideco:block/rustic/table/dark_oak",
+        "particle": "block/dark_oak_planks"
+    }
+}

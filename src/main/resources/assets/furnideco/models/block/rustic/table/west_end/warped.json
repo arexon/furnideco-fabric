@@ -1,0 +1,7 @@
+{
+    "parent": "furnideco:block/rustic/table/west_end",
+    "textures": {
+        "material": "furnideco:block/rustic/table/warped",
+        "particle": "block/warped_planks"
+    }
+}

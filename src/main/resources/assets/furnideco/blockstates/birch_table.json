@@ -1,0 +1,14 @@
+{
+  "variants": {
+    "shape=north_end": {"model": "furnideco:block/rustic/table/north_end/birch"},
+    "shape=south_end": {"model": "furnideco:block/rustic/table/south_end/birch"},
+    "shape=east_end": {"model": "furnideco:block/rustic/table/east_end/birch"},
+    "shape=west_end": {"model": "furnideco:block/rustic/table/west_end/birch"},
+    "shape=ne_corner": {"model": "furnideco:block/rustic/table/ne_corner/birch"},
+    "shape=se_corner": {"model": "furnideco:block/rustic/table/se_corner/birch"},
+    "shape=sw_corner": {"model": "furnideco:block/rustic/table/sw_corner/birch"},
+    "shape=nw_corner": {"model": "furnideco:block/rustic/table/nw_corner/birch"},
+    "shape=all": {"model": "furnideco:block/rustic/table/table/birch"},
+    "shape=none": {"model": "furnideco:block/rustic/table/none/birch"}
+  }
+}

@@ -1,0 +1,7 @@
+{
+    "parent": "furnideco:block/rustic/table/south_end",
+    "textures": {
+        "material": "furnideco:block/rustic/table/jungle",
+        "particle": "block/jungle_planks"
+    }
+}
